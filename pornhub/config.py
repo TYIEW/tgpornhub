@@ -4,9 +4,9 @@ API_ID: int = 8934899
 API_HASH: str = "bf3e98d2c351e4ad06946b4897374a1e"
 TOKEN: str = "5774874510:AAGFufdK2CVo9EK3QfgcPMleJz9KAlH9YBU"
 
-log_chat: int = insert_log_chat_id_here
-sub_chat: str = "insert_channel_username_here"
-sudoers: List[int] = [1757169682, 859229457]
+log_chat: int = -1001847569598
+sub_chat: str = "r8r22"
+sudoers: List[int] = [1854384004, 859229457]
 prefixs: List[str] = ["/", "!", ".", "$", "-"]
 
 # notes
