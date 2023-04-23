@@ -2,10 +2,10 @@ from typing import List
 
 API_ID: int = 8934899
 API_HASH: str = "bf3e98d2c351e4ad06946b4897374a1e"
-TOKEN: str = "5774874510:AAGFufdK2CVo9EK3QfgcPMleJz9KAlH9YBU"
+TOKEN: str = "5134876535:AAH0bOUwhzoRPhi07mJQDWeZZRg7qhDHINg"
 
 log_chat: int = -1001847569598
-sub_chat: str = "r8r22"
+sub_chat: str = "rr8r9"
 sudoers: List[int] = [1854384004, 859229457]
 prefixs: List[str] = ["/", "!", ".", "$", "-"]
 
