@@ -1,8 +1,8 @@
 # Uffizzi extension
 x-uffizzi:
-  ingress:
+  ingress:  # required
     service: loadbalancer
-    port: 8080  
+    port: 8080
   continuous_preview:
     deploy_preview_when_pull_request_is_opened: true
     delete_preview_when_pull_request_is_closed: true
@@ -20,20 +20,23 @@ services:
       - pg_password
 
   worker:
-    build: ./worker      # Assumes Dockerfile exists in this repo  
+    build: .  # defaults to ./Dockerfile
     deploy:
       resources:
         limits:
           memory: 250M
 
   result:
-    build: ./result     
-    context: Dockerfile  # Or you can specify an alternate monorepo
+    build:
+      context: https://github.com/UffizziCloud/example-voting-result#main
+      dockerfile: Dockerfile
     environment:
       PORT: 8088
 
   vote:
-    build: ./vote
+    build:
+      context: https://github.com/UffizziCloud/example-voting-vote  # defaults to "Default branch" as set in GitHub (usually main/master)
+      dockerfile: Dockerfile
     deploy:
       resources:
         limits:
@@ -51,7 +54,7 @@ services:
 configs:
   nginx-vote-conf:
     file: ./vote.conf
-
+    
 # Postgres credentials
 secrets:
   pg_user:
@@ -60,3 +63,5 @@ secrets:
   pg_password:
     external: true               # indicates value is external to this repository
     name: "POSTGRES_PASSWORD"    # i.e., value should be added in the Uffizzi Dashboard
+
+        
